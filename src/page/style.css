@@ -1,0 +1,127 @@
+body {
+    background-color: #333
+}
+.synth-scale{
+    border: 3px solid white;
+}
+.synth-beep{
+    background-color: blueviolet;
+    margin: 7px;
+    width: 35px;
+    height: 35px;
+    transform:rotate(45deg);
+    display: inline-flex;
+}
+/*This is the style that give our music boxes shape*/
+.box {
+    width: 50px;
+    height: 50px;
+}
+
+/* notes initial */
+.C {
+    background-color: #3e181b;
+    border: 3px solid #db1d2d;
+}
+
+.D {
+    background-color: #422018;
+    border: 3px solid #f0421c;
+}
+
+.E {
+    background-color: #45391b;
+    border: 3px solid #fec02d;
+}
+
+.F {
+    background-color: #193c29;
+    border: 3px solid #20d071;
+}
+
+.G {
+    background-color: #18323e;
+    border: 3px solid #1a9ddb;
+}
+
+.A {
+    background-color: #331f35;
+    border: 3px solid #a13fad;
+}
+
+.B {
+    background-color: #43293d;
+    border: 3px solid #f26fd4;
+}
+
+/* notes hover */
+.C:hover {
+    background-color:#661920;
+    cursor: pointer;
+}
+
+.D:hover {
+    background-color:#6e2819;
+    cursor: pointer;
+}
+
+.E:hover {
+    background-color:#735b20;
+    cursor: pointer;
+}
+
+.F:hover {
+    background-color:#1b613b;
+    cursor: pointer;
+}
+
+.G:hover {
+    background-color:#184d65;
+    cursor: pointer;
+}
+
+.A:hover {
+    background-color:#4e2753;
+    cursor: pointer;
+}
+
+.B:hover {
+    background-color:#6f3a62;
+    cursor: pointer;
+}
+
+/* notes active and notes lit */
+.C:active, .c.light {
+    background-color:#db1d2d;
+}
+
+.D:active, .d.light {
+    background-color:#f0421c;
+}
+
+.E:active, .e.light {
+    background-color:#fec02d;
+}
+
+.F:active, .f.light {
+    background-color:#20d071;
+}
+
+.G:active, .g.light {
+    background-color:#1a9ddb;
+}
+
+.A:active, .a.light {
+    background-color:#a13fad;
+}
+
+.B:active, .b.light {
+    background-color:#f26fd4;
+}
+
+/* notes sharp/flat */
+
+.E.flat, .A.flat, .B.flat, .D.flat, .G.Flat {
+    position: relative;
+    top: 15%;
+}
