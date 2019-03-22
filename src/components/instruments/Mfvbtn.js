@@ -9,27 +9,27 @@ var MIDI_NUM_NAMES = ["C_1", "C#_1", "D_1", "D#_1", "E_1", "F_1", "F#_1", "G_1",
 var mfv = {
     name:'My Funny Valentine',
     ref: 60,
-    bpm: 60,
+    bpm: 100,
     part1:[
-      {'note': "C4", 'duration': "2n", 'time': 0},
-      {'note': "D4", 'duration': "4n", 'time': "0:2"},
-      {'note': "D#4", 'duration': "4n", 'time': "0:3"},
-      {'note': "D4", 'duration': "4n + 8n", 'time': "1:0"},
-      {'note': "D#4", 'duration': "8n", 'time': "1:2:2"},
-      {'note': "D4", 'duration': "2n", 'time': "1:3"},
-      {'note': "C4", 'duration': "2n", 'time': "2:0"},
-      {'note': "D4", 'duration': "4n", 'time': "2:2"},
-      {'note': "D#4", 'duration': "4n", 'time': "2:3"},
-      {'note': "D4", 'duration': "4n + 8n", 'time': "3:0"},
-      {'note': "D#4", 'duration': "8n", 'time': "3:2:2"},
-      {'note': "D4", 'duration': "2n", 'time': "3:3"},
-      {'note': "C4", 'duration': "2n", 'time': "4:0"},
-      {'note': "D4", 'duration': "4n", 'time': "4:2"},
-      {'note': "D#4", 'duration': "4n", 'time': "4:3"},
-      {'note': "A#4", 'duration': "2n", 'time': "5:0"},
-      {'note': "G#4", 'duration': "4n", 'time': "5:2"},
-      {'note': "G4", 'duration': "4n", 'time': "5:3"},
-      {'note': "F4", 'duration': "1n", 'time': "6:0"},
+      {note: 0, duration: 2, time: 0, velocity: .5},
+      {note: 2, duration: 1, time: "0:2", velocity: .5},
+      {note: 3, duration: 1, time: "0:3", velocity: .5},
+      {note: 2, duration: 1.5, time: "1:0", velocity: .5},
+      {note: 3, duration: .5, time: "1:2:2", velocity: .5},
+      {note: 2, duration: 2, time: "1:3", velocity: .5},
+      {note: 0, duration: 2, time: "2:0", velocity: .5},
+      {note: 2, duration: 1, time: "2:2", velocity: .5},
+      {note: 3, duration: 1, time: "2:3", velocity: .5},
+      {note: 2, duration: 1.5, time: "3:0", velocity: .5},
+      {note: 3, duration: .5, time: "3:2:2", velocity: .5},
+      {note: 2, duration: 2, time: "3:3", velocity: .5},
+      {note: 0, duration: 2, time: "4:0", velocity: .5},
+      {note: 2, duration: 1, time: "4:2", velocity: .5},
+      {note: 3, duration: 1, time: "4:3", velocity: .5},
+      {note: 10, duration: 2, time: "5:0", velocity: .5},
+      {note: 8, duration: 1, time: "5:2", velocity: .5},
+      {note: 7, duration: 1, time: "5:3", velocity: .5},
+      {note: 5, duration: 4, time: "6:0", velocity: .5},
       // {note: "C4", duration: "2n", time: 0},
       // {note: "D4", duration: "4n", time: "0:2"},
       // {note: "D#4", duration: "4n", time: "0:3"},
@@ -93,7 +93,6 @@ var mfv = {
 }
 //-----------------------------------------------------*/
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var musicBox = null;
 
 function stopIt(){
@@ -106,30 +105,34 @@ function stopIt(){
    }
 
 function myFunnyValetine(){
+      // resets audiocontext
       stopIt();
+      // resets instrument settings
       musicBox = null;
+      // resets part data
       var melodyPart = null;
-      var t = new Tone.Time('0');
-      
+      // can edit instrument sound inside here
       if(!musicBox){
             musicBox = new Tone.Synth({
-                  "envelope": {
-                        "attack": .01,
-                        "decay": .2,
-                        "sustain": .3,
-                        "release": .5
-                  }
+            //   envelope,oscillator,delay,
+            envelope: {
+                  "attack": .015,
+                  "decay": 2,
+                  "sustain": 0.01,
+                  "release": 1
+              }  
             }).toMaster()
+            musicBox.volume.value = -5
       };
 
       melodyPart = new Tone.Part(function(time,value){
-            musicBox.triggerAttackRelease(value.note, value.duration, time)
+            musicBox.triggerAttackRelease((MIDI_NUM_NAMES[value.note + mfv.ref]), value.duration, time, .75)
       }, mfv.part1).start(0);
-      var tempo = 100;
+      var tempo = mfv.bpm;
       Tone.Transport.bpm.value = tempo   
-      Tone.Transport.start('+0.1');
+      Tone.Transport.start('+0.5');
       console.log(melodyPart)
-      return melodyPart
+       return melodyPart
 }
 
 const Mfvbtn = () => {
