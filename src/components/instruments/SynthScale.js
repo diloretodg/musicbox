@@ -15,7 +15,7 @@ const SynthScale = (props) => {
                     <div 
                         className= {key[1] === 'b' ? (key[0] + ' flat synth-beep') : (key[0] + ' synth-beep')}
                         key= {index}
-                        note= {note} {...props} onClick = {()=>synth.triggerAttackRelease(note || "C4", props.subdevision||'8n')}>
+                        note= {note} onClick = {()=>synth.triggerAttackRelease(note || "C4", props.subdevision||'8n')}>
                     </div>
                 )
             })}
