@@ -9,7 +9,7 @@ var MIDI_NUM_NAMES = ["C_1", "C#_1", "D_1", "D#_1", "E_1", "F_1", "F#_1", "G_1",
 var mfv = {
     name:'My Funny Valentine',
     ref: 60,
-    bpm: 150,
+    bpm: 120,
     bass:[
       [0,4,0],
       [-1,4,4],
