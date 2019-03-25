@@ -9,67 +9,8 @@ var MIDI_NUM_NAMES = ["C_1", "C#_1", "D_1", "D#_1", "E_1", "F_1", "F#_1", "G_1",
 var mfv = {
     name:'My Funny Valentine',
     ref: 60,
-    bpm: 100,
+    bpm: 150,
     part1:[
-      {note: 0, duration: 2, time: 0, velocity: .5},
-      {note: 2, duration: 1, time: "0:2", velocity: .5},
-      {note: 3, duration: 1, time: "0:3", velocity: .5},
-      {note: 2, duration: 1.5, time: "1:0", velocity: .5},
-      {note: 3, duration: .5, time: "1:2:2", velocity: .5},
-      {note: 2, duration: 2, time: "1:3", velocity: .5},
-      {note: 0, duration: 2, time: "2:0", velocity: .5},
-      {note: 2, duration: 1, time: "2:2", velocity: .5},
-      {note: 3, duration: 1, time: "2:3", velocity: .5},
-      {note: 2, duration: 1.5, time: "3:0", velocity: .5},
-      {note: 3, duration: .5, time: "3:2:2", velocity: .5},
-      {note: 2, duration: 2, time: "3:3", velocity: .5},
-      {note: 0, duration: 2, time: "4:0", velocity: .5},
-      {note: 2, duration: 1, time: "4:2", velocity: .5},
-      {note: 3, duration: 1, time: "4:3", velocity: .5},
-      {note: 10, duration: 2, time: "5:0", velocity: .5},
-      {note: 8, duration: 1, time: "5:2", velocity: .5},
-      {note: 7, duration: 1, time: "5:3", velocity: .5},
-      {note: 5, duration: 4, time: "6:0", velocity: .5},
-      // {note: "C4", duration: "2n", time: 0},
-      // {note: "D4", duration: "4n", time: "0:2"},
-      // {note: "D#4", duration: "4n", time: "0:3"},
-      // {note: "D4", duration: "4n + 8n", time: "1:0"},
-      // {note: "D#4", duration: "8n", time: "1:2:2"},
-      // {note: "D4", duration: "2n", time: "1:3"},
-      // {note: "C4", duration: "2n", time: "2:0"},
-      // {note: "D4", duration: "4n", time: "2:2"},
-      // {note: "D#4", duration: "4n", time: "2:3"},
-      // {note: "D4", duration: "4n + 8n", time: "3:0"},
-      // {note: "D#4", duration: "8n", time: "3:2:2"},
-      // {note: "D4", duration: "2n", time: "3:3"},
-      // {note: "C4", duration: "2n", time: "4:0"},
-      // {note: "D4", duration: "4n", time: "4:2"},
-      // {note: "D#4", duration: "4n", time: "4:3"},
-      // {note: "A#4", duration: "2n", time: "5:0"},
-      // {note: "G#4", duration: "4n", time: "5:2"},
-      // {note: "G4", duration: "4n", time: "5:3"},
-      // {note: "F4", duration: "1n", time: "6:0"},
-      //   {note:0,duration:'2n',timing:0},
-      //   {note:2,duration:'4n',timing:'0:2'},
-      //   {note:3,duration:'4n',timing:'0:3'},
-      //   {note:2,duration:'4n + 8n',timing:'1:0'},
-      //   {note:3,duration:'8n',timing:'1:2:2'},
-      //   {note:2,duration:'2n',timing:'1:3'},
-      //   {note:0,duration:'2n',timing:'2:0'},
-      //   {note:2,duration:'4n',timing:'2:2'},
-      //   {note:3,duration:'4n',timing:'2:3'},
-      //   {note:2,duration:'4n + 8n',timing:'3:0'},
-      //   {note:3,duration:'8n',timing:'3:2:2'},
-      //   {note:2,duration:'2n',timing:'3:3'},
-      //   {note:0,duration:'2n',timing:'4:0'},
-      //   {note:2,duration:'4n',timing:'4:2'},
-      //   {note:3,duration:'4n',timing:'4:3'},
-      //   {note:10,duration:'2n',timing:'5:0'},
-      //   {note:8,duration:'4n',timing:'5:2'},
-      //   {note:7,duration:'4n',timing:'5:3'},
-      //   {note:5,duration:'1n',timing:'6:0'},
-    ],
-    part2:[
       [0,2,0],
       [2,1,2],
       [3,1,3],
@@ -89,11 +30,99 @@ var mfv = {
       [8,1,22],
       [7,1,23],
       [5,8,24],
+      [3,2,32],
+      [5,1,34],
+      [7,1,35],
+      [5,1.5,36],
+      [7,.5,37.5],
+      [5,2,38],
+      [3,2,40],
+      [5,1,42],
+      [7,1,43],
+      [5,1.5,44],
+      [7,.5,45.5],
+      [5,2,46],
+      [3,2,48],
+      [5,1,50],
+      [7,1,51],
+      [14,1.5,52],
+      [12,.5,53.5],
+      [10,1.5,54],
+      [9,.5,55.5],
+      [8,6,56],
+      [7,1,62],
+      [5,1,63],
+      [10,1.5,64],
+      [3,.5,65.5],
+      [3,1,66],
+      [2,1,67],
+      [3,2,68],
+      [3,1,70],
+      [2,1,71],
+      [12,1.5,72],
+      [3,.5,73.5],
+      [3,1,74],
+      [2,1,75],
+      [3,2,76],
+      [3,1,78],
+      [2,1,79],
+      [14,1.5,80],
+      [3,.5,81.5],
+      [3,1,82],
+      [2,1,83],
+      [3,2,84],
+      [5,1,86],
+      [7,1,87],
+      [12,6,88],
+      [3,1,94],
+      [2,1,95],
+      [0,2,96],
+      [2,1,98],
+      [3,1,99],
+      [2,1.5,100],
+      [3,.5,101.5],
+      [2,2,102],
+      [3,2,104],
+      [5,1,106],
+      [7,1,107],
+      [5,1.5,108],
+      [7,.5,109.5],
+      [5,2,110],
+      [12,2,112],
+      [14,1,114],
+      [15,1,115],
+      [14,1.5,116],
+      [15,.5,117.5],
+      [14,2,118],
+      [15,8,120],
+      [3,2,128],
+      [5,1,130],
+      [7,1,131],
+      [5,1.5,132],
+      [7,.5,133.5],
+      [5,2,134],
+      [3,4,136]
   ]
 }
 //-----------------------------------------------------*/
 
 var musicBox = null;
+var song = [];
+
+function songBuild(songArr){
+      song = []
+      for(var i = 0; i < songArr.length; i ++){
+            var oneNote = {};
+            Object.defineProperties(oneNote, {
+                  note: {value: songArr[i][0]},
+                  duration: {value: songArr[i][1]},
+                  time: {value: songArr[i][2]}           
+            });
+            song.push(oneNote);
+      }
+      console.log(song)
+      return song
+}
 
 function stopIt(){
       Tone.Transport.stop();
@@ -127,13 +156,15 @@ function myFunnyValetine(){
 
       melodyPart = new Tone.Part(function(time,value){
             musicBox.triggerAttackRelease((MIDI_NUM_NAMES[value.note + mfv.ref]), value.duration, time, .75)
-      }, mfv.part1).start(0);
+      }, song).start(0);
       var tempo = mfv.bpm;
-      Tone.Transport.bpm.value = tempo   
+      Tone.Transport.bpm.value = tempo;   
       Tone.Transport.start('+0.5');
       console.log(melodyPart)
        return melodyPart
 }
+
+songBuild(mfv.part1)
 
 const Mfvbtn = () => {
     return (
