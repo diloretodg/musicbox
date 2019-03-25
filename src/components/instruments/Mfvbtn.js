@@ -10,6 +10,58 @@ var mfv = {
     name:'My Funny Valentine',
     ref: 60,
     bpm: 150,
+    bass:[
+      [0,4,0],
+      [-1,4,4],
+      [-2,4,8],
+      [-3,4,12],
+      [-4,4,16],
+      [-7,4,20],
+      [-10,4,24],
+      [-5,4,28],
+      //
+      [0,4,32],
+      [-1,4,36],
+      [-2,4,40],
+      [-3,4,44],
+      [-4,4,48],
+      [-7,4,52],
+      [-7,4,56],
+      [-2,4,60],
+      //
+      [3,2,64],
+      [5,2,66],
+      [7,2,68],
+      [5,2,70],
+      [3,2,72],
+      [5,2,74],
+      [7,2,76],
+      [5,2,78],
+      //
+      [3,2,80],
+      [7,2,82],
+      [0,2,84],
+      [-2,1,86],
+      [-3,1,87],
+      [-4,4,88],
+      [2,2,92],
+      [-5,2,94],
+      //
+      [0,4,96],
+      [-1,4,100],
+      [-2,4,104],
+      [-3,4,108],
+      [-4,4,112],
+      [2,2,116],
+      [-5,2,118],
+      [0,4,120],
+      [-2,2,124],
+      [-3,2,126],
+      [-4,4,128],
+      [-7,2,132],
+      [-2,2,134],
+      [-9,4,136],
+],
     part1:[
       [0,2,0],
       [2,1,2],
@@ -91,7 +143,7 @@ var mfv = {
       [12,2,112],
       [14,1,114],
       [15,1,115],
-      [14,1.5,116],
+      [17,1.5,116],
       [15,.5,117.5],
       [14,2,118],
       [15,8,120],
@@ -107,10 +159,12 @@ var mfv = {
 //-----------------------------------------------------*/
 
 var musicBox = null;
+var bassBox = null;
 var song = [];
+var bass = [];
 
 function songBuild(songArr){
-      song = []
+      song = [];
       for(var i = 0; i < songArr.length; i ++){
             var oneNote = {};
             Object.defineProperties(oneNote, {
@@ -123,23 +177,36 @@ function songBuild(songArr){
       console.log(song)
       return song
 }
+function bassBuild(songArr){
+      bass = [];
+      for(var i = 0; i < songArr.length; i ++){
+            var oneNote = {};
+            Object.defineProperties(oneNote, {
+                  note: {value: songArr[i][0]},
+                  duration: {value: songArr[i][1]},
+                  time: {value: songArr[i][2]}           
+            });
+            bass.push(oneNote);
+      }
+      console.log(bass)
+      return bass
+}
 
 function stopIt(){
       Tone.Transport.stop();
       Tone.Transport.cancel(0);
-      if(musicBox) {
-          musicBox.dispose();
-          musicBox = null;
-      }
    }
 
 function myFunnyValetine(){
       // resets audiocontext
       stopIt();
+      Tone.Transport.bpm.value = 60
       // resets instrument settings
       musicBox = null;
+      bassBox = null;
       // resets part data
       var melodyPart = null;
+      var bassPart = null;
       // can edit instrument sound inside here
       if(!musicBox){
             musicBox = new Tone.Synth({
@@ -153,18 +220,32 @@ function myFunnyValetine(){
             }).toMaster()
             musicBox.volume.value = -5
       };
+      if(!bassBox){
+            bassBox = new Tone.Synth({
+            //   envelope,oscillator,delay,
+            envelope: {
+                  "attack": .02,
+                  "decay": 2.75,
+                  "sustain": 0.1,
+                  "release": 1
+              }  
+            }).toMaster()
+            bassBox.volume.value = -5
+      };
 
       melodyPart = new Tone.Part(function(time,value){
             musicBox.triggerAttackRelease((MIDI_NUM_NAMES[value.note + mfv.ref]), value.duration, time, .75)
       }, song).start(0);
-      var tempo = mfv.bpm;
-      Tone.Transport.bpm.value = tempo;   
-      Tone.Transport.start('+0.5');
-      console.log(melodyPart)
-       return melodyPart
+      bassPart = new Tone.Part(function(time,value){
+            bassBox.triggerAttackRelease((MIDI_NUM_NAMES[value.note + mfv.ref - 12]), value.duration, time, .7)
+      }, bass).start(0);
+      
+      Tone.Transport.bpm.value = mfv.bpm 
+      Tone.Transport.start("+0.1");
 }
 
-songBuild(mfv.part1)
+songBuild(mfv.part1);
+bassBuild(mfv.bass);
 
 const Mfvbtn = () => {
     return (

@@ -3,6 +3,7 @@ body {
 }
 .synth-scale{
     border: 3px solid white;
+    padding: 5%;
 }
 .synth-beep{
     background-color: blueviolet;
