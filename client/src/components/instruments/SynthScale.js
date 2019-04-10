@@ -1,15 +1,16 @@
 import React from "react";
 import Tone from "tone";
-// import { Col } from "../Grid";
+const scale = require('../../js/scales')
 
 
-
+var scaleArr = scale.MIDI_NUM_NAMES
 
 const SynthScale = (props) => {
-  const synth = new Tone.Synth().toMaster()
-  return (
+    const synth = new Tone.Synth().toMaster();
+
+    return (
         <div className='synth-scale' >
-            {props.scale.map((note,index)=>{
+            {scaleArr.map((note,index)=>{
                 var key = note.split('')
                 return(
                     <div 
@@ -20,6 +21,6 @@ const SynthScale = (props) => {
                 )
             })}
         </div>
-  );
+    );
 }
 export default SynthScale;
