@@ -1,11 +1,11 @@
 import React from "react";
 import Tone from "tone";
-const scale = require('../../js/scales')
+const scale = require('../../../js/scales')
 // import { Col } from "../Grid";
 
 
 const MIDI_NUM_NAMES = scale.MIDI_NUM_NAMES
-const mfv = require('../../js/songBank/mfv')
+const mfv = require('../../../js/songBank/mfv')
 
 
 //-----------------------------------------------------*/
@@ -57,7 +57,9 @@ function myFunnyValetine(){
       musicBox = null;
       bassBox = null;
       // resets part data
+      // eslint-disable-next-line
       var melodyPart = null;
+      // eslint-disable-next-line
       var bassPart = null;
       // can edit instrument sound inside here
       if(!musicBox){

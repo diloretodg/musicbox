@@ -1,6 +1,6 @@
 const db = require("../database/models");
 
-//defining methods for the Songs
+//defining methods for the Instruments
 module.exports = {
     findAll: function(req, res) {
         db.Song

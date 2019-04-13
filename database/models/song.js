@@ -2,19 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const noteSchema = new Schema({
-    oneNote:{
-        pitch: {
-            type: Number,
-            requred: true
-        },
-        duration: {
-            type: Number,
-            requred: true
-        },
-        timing: {
-            type: Number,
-            requred: true
-        },
+    pitch: {
+        type: Number,
+        requred: true
+    },
+    duration: {
+        type: Number,
+        requred: true
+    },
+    time: {
+        type: Number,
+        requred: true
     }
 });
 
