@@ -10,7 +10,8 @@ var bassBox = null;
 
 class DBPlay extends Component {
     state = {
-        songBook: []
+        songBook: [],
+        song: 
     }
 
     componentDidMount(){
@@ -31,7 +32,7 @@ class DBPlay extends Component {
       Tone.Transport.cancel(0);
    }
 
-    songPlay(){
+    songPlay(song){
         // resets audiocontext
         this.stopIt();
         Tone.Transport.bpm.value = 60
@@ -69,20 +70,20 @@ class DBPlay extends Component {
     
             melodyPart = new Tone.Part(function(time,value){
                 musicBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60]), value.duration, time, .75)
-          }, this.state.songBook[1].parts[0].notes).start(0);
-            if(this.state.songBook[1].parts[1]){bassPart = new Tone.Part(function(time,value){
+          }, song.parts[0].notes).start(0);
+            if(song.parts[1]){bassPart = new Tone.Part(function(time,value){
                 bassBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60 - 12]), value.duration, time, .7)
-          }, this.state.songBook[1].parts[0].notes).start(0);}
+          }, song.parts[0].notes).start(0);}
           Tone.Transport.bpm.value = this.state.songBook[0].bpm; 
           Tone.Transport.start("+0.1");
     }
     
 
-    render(){
+    render(props){
         return (
             <div 
             className='synth-beep'
-            onClick={() => this.songPlay()}
+            onClick={() => this.songPlay(this.state.song)}
             />
         )
     }

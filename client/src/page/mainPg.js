@@ -6,7 +6,7 @@ import Mfvbtn from '../components/button/song/Mfvbtn'
 import SongPost from '../components/button/song/songPost'
 import BankPlay from '../components/button/song/BankPlay'
 import DBPlay from '../components/button/song/DBPlay'
-
+import SongList from '../components/songs/SongList'
 
 const scale = require('../js/scales')
 class MainPg extends Component {
@@ -35,6 +35,7 @@ class MainPg extends Component {
                             <DBPlay></DBPlay>
                         </Col>
                     </Row>
+                    <SongList></SongList>
             </Container>
         )
     }
