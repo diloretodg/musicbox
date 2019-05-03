@@ -55,10 +55,10 @@ function songPlay(){
 
         melodyPart = new Tone.Part(function(time,value){
             musicBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60]), value.duration, time, .75)
-      }, songBank[1].parts[1].notes).start(0);
+      }, songBank[0].parts[1].notes).start(0);
         bassPart = new Tone.Part(function(time,value){
             bassBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60 - 12]), value.duration, time, .7)
-      }, songBank[1].parts[0].notes).start(0);
+      }, songBank[0].parts[0].notes).start(0);
       Tone.Transport.bpm.value = songBank[0].bpm; 
       Tone.Transport.start("+0.1");
 }

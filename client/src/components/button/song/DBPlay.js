@@ -11,7 +11,7 @@ var bassBox = null;
 class DBPlay extends Component {
     state = {
         songBook: [],
-        song: '',
+        song: {},
     }
 
     componentDidMount(){
@@ -70,10 +70,10 @@ class DBPlay extends Component {
     
             melodyPart = new Tone.Part(function(time,value){
                 musicBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60]), value.duration, time, .75)
-          }, song.parts[0].notes).start(0);
-            if(song.parts[1]){bassPart = new Tone.Part(function(time,value){
+          }, this.state.songBook[0].parts[0].notes).start(0);
+            if(this.state.songBook[0].parts[1]){bassPart = new Tone.Part(function(time,value){
                 bassBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60 - 12]), value.duration, time, .7)
-          }, song.parts[0].notes).start(0);}
+          }, this.state.songBook[0].parts[0].notes).start(0);}
           Tone.Transport.bpm.value = this.state.songBook[0].bpm; 
           Tone.Transport.start("+0.1");
     }
