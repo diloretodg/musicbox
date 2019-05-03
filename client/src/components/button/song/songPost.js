@@ -16,7 +16,7 @@ const SongPost = () => {
     return (
           <div 
                 className='synth-beep' 
-                onClick = {()=> console.log("songbank already imported -DGD")}>
+                onClick = {()=> createSong(postObj)}>
           </div>
     );
   }

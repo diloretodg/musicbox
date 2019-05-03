@@ -34,6 +34,9 @@ class MainPg extends Component {
                         <Col size='md-12'>
                             <DBPlay></DBPlay>
                         </Col>
+                        <Col size='md-12'>
+                            <SongPost></SongPost>
+                        </Col>
                     </Row>
                     <SongList></SongList>
             </Container>
