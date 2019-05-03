@@ -19,10 +19,10 @@ var songBank = [
                     {pitch: 5, duration: 1, time: 7},
                     {pitch: 12, duration: .5, time: 8},
                     {pitch: 11, duration: .5, time: 8.5},
-                    {pitch: 12, duration: 1, time: 9},
-                    {pitch: 7, duration: 1.5, time: 10.5},
-                    {pitch: 0, duration: .5, time: 11},
-                    {pitch: 9, duration: 2, time: 11.5},
+                    {pitch: 12, duration: 2, time: 9},
+                    {pitch: 7, duration: 1.5, time: 11},
+                    {pitch: 0, duration: .5, time: 12.5},
+                    {pitch: 9, duration: 2, time: 13},
                 ]
             }
         ]
