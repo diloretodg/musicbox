@@ -11,7 +11,7 @@ var bassBox = null;
 class DBPlay extends Component {
     state = {
         songBook: [],
-        song: 
+        song: '',
     }
 
     componentDidMount(){
