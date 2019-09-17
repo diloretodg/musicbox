@@ -34,7 +34,7 @@ class SongList extends Component {
                             {this.state.songBook.map((song, index) => {
                                 return(
                                     <li>
-                                        <DBPlay id= {index } song = {song}/>
+                                        <DBPlay id= {index} song = {song}/>
                                         <p>{song.name}</p>
                                     </li>
                                 )

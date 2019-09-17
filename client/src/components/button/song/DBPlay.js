@@ -72,7 +72,7 @@ class DBPlay extends Component {
                 musicBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60]), value.duration, time, .75)
           }, this.state.songBook[0].parts[0].notes).start(0);
             if(this.state.songBook[0].parts[1]){bassPart = new Tone.Part(function(time,value){
-                bassBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 60 - 12]), value.duration, time, .7)
+                bassBox.triggerAttackRelease((MIDI_NUM_NAMES[value.pitch + 48]), value.duration, time, .7)
           }, this.state.songBook[0].parts[0].notes).start(0);}
           Tone.Transport.bpm.value = this.state.songBook[0].bpm; 
           Tone.Transport.start("+0.1");

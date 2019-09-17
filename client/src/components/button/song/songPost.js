@@ -5,7 +5,7 @@ const songBank = require('../../../js/songBank/bank')
 
 //-----------------------------------------------------*/
 // eslint-disable-next-line
-var postObj = songBank[0];
+var postObj = songBank[1];
 // eslint-disable-next-line
 function createSong(songObj){
       API.createSong(songObj)
